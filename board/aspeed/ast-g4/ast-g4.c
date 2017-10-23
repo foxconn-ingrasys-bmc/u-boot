@@ -44,7 +44,8 @@ int board_init(void)
         /* Disable WDT2 */
         u32 reg;
 	reg = readl(AST_WDT_BASE + 0x2c);
-	writel(reg & BIT(0), AST_WDT_BASE + 0x2c);
+	reg &= 0xFE;
+	writel(reg, AST_WDT_BASE + 0x2c);
 
 	return 0;
 }
