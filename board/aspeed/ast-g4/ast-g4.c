@@ -40,6 +40,12 @@ int board_init(void)
 	gd->flags = 0;
 	WDT2_counter_setting();
 	watchdog_init();
+
+        /* Disable WDT2 */
+        u32 reg;
+	reg = readl(AST_WDT_BASE + 0x2c);
+	writel(reg & BIT(0), AST_WDT_BASE + 0x2c);
+
 	return 0;
 }
 
