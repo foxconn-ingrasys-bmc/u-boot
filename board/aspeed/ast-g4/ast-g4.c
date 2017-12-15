@@ -39,13 +39,13 @@ int board_init(void)
 	gd->bd->bi_boot_params = CONFIG_SYS_SDRAM_BASE + 0x100;
 	gd->flags = 0;
 	WDT2_counter_setting();
-	watchdog_init();
+	//watchdog_init();
 
         /* Disable WDT2 */
-        u32 reg;
-	reg = readl(AST_WDT_BASE + 0x2c);
-	reg &= 0xFE;
-	writel(reg, AST_WDT_BASE + 0x2c);
+        //u32 reg;
+	//reg = readl(AST_WDT_BASE + 0x2c);
+	//reg &= 0xFE;
+	//writel(reg, AST_WDT_BASE + 0x2c);
 
 	return 0;
 }
@@ -139,7 +139,8 @@ int board_eth_init(bd_t *bd)
 
 void WDT2_counter_setting()
 {
-    *((volatile ulong *)0x1e785024) = 0x07270e00;  // change timeout to 120 seconds
+    //*((volatile ulong *)0x1e785024) = 0x07270e00;  // change timeout to 120 seconds
+    *((volatile ulong *)0x1e785024) = 0x0e4e1c00;  // change timeout to 240 seconds
     *((volatile ulong *)0x1e785028) = 0x00004755;  // magic number to trigger reload
     return;
 }
