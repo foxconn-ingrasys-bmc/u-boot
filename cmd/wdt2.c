@@ -12,7 +12,7 @@ int do_wdt2_disable(cmd_tbl_t *cmdtp, int flag, int argc, char *const argv[])
     if (argc != 2)
         return CMD_RET_USAGE;
     if (argv[1][0] == '0')
-        *((volatile ulong *)0x1e78502c) = 0;
+        *((volatile ulong *)0x1e78502c) =0x00000010;
     else
          return CMD_RET_USAGE;
 
