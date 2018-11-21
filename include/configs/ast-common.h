@@ -84,7 +84,7 @@
 #define CONFIG_SYS_MAXARGS		16
 #define CONFIG_SYS_BARGSIZE		CONFIG_SYS_CBSIZE
 
-#define CONFIG_BOOTARGS			"console=ttyS4,115200n8 root=/dev/ram rw"
+#define CONFIG_BOOTARGS			"console=ttyS2,115200n8 root=/dev/ram rw"
 
 #define CONFIG_AST_SPI_NOR    /* AST SPI NOR Flash */
 #define CONFIG_FMC_CS			1

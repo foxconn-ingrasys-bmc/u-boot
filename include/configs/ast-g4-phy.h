@@ -29,7 +29,7 @@ i * modify it under the terms of the GNU General Public License as
 #define CONFIG_CMDLINE_TAG	 1		/* enable passing of ATAGs	*/
 #define CONFIG_SETUP_MEMORY_TAGS 1
 #define CONFIG_INITRD_TAG	 1
-#define	CONFIG_BOOTARGS 	"console=ttyS4,115200n8 root=/dev/ram rw"
+#define	CONFIG_BOOTARGS 	"console=ttyS2,115200n8 root=/dev/ram rw"
 #define CONFIG_UPDATE           "tftp 40800000 ast2400.scr; so 40800000'"
 
 #define CONFIG_BOOTDELAY	3		/* autoboot after 3 seconds	*/

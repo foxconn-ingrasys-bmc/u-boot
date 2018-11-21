@@ -33,6 +33,21 @@ static void watchdog_init()
 #endif
 }
 
+int uart3_init(void)
+{
+	u32 reg;
+
+	/* Unlock SCU */
+	writel(SCU_PROTECT_UNLOCK, AST_SCU_BASE);
+
+        /* Set PWM dytu to 100% */
+         reg = *((volatile ulong*) 0x1e6e2080);
+         reg |= 0xff0000;  // enable PWM1~6 function pin
+         *((volatile ulong*) 0x1e6e2080) = reg;
+
+	writel(0x0, AST_SCU_BASE);
+}
+
 int board_init(void)
 {
 	/* adress of boot parameters */
@@ -40,6 +55,7 @@ int board_init(void)
 	gd->flags = 0;
 	WDT2_counter_setting();
 	watchdog_init();
+	uart3_init();
 	return 0;
 }
 
