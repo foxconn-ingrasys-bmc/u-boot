@@ -47,8 +47,6 @@ int uart3_init(void)
          *((volatile ulong*) 0x1e6e2080) = reg;
 
 	writel(0x0, AST_SCU_BASE);
-
-	printk("111111111111enable UART3 function pin\n");
 }
 
 int board_init(void)
@@ -58,6 +56,7 @@ int board_init(void)
 	gd->flags = 0;
 	WDT2_counter_setting();
 	watchdog_init();
+
 	uart3_init();
 	return 0;
 }
