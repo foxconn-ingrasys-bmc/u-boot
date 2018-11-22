@@ -40,12 +40,14 @@ int uart3_init(void)
 	/* Unlock SCU */
 	writel(SCU_PROTECT_UNLOCK, AST_SCU_BASE);
 
-        /* Set PWM dytu to 100% */
+        /* enable UART3 function pin */
          reg = *((volatile ulong*) 0x1e6e2080);
-         reg |= 0xff0000;  // enable PWM1~6 function pin
+         reg |= 0xff0000;  // enable UART3 function pin
          *((volatile ulong*) 0x1e6e2080) = reg;
 
 	writel(0x0, AST_SCU_BASE);
+
+	prink("111111111111enable UART3 function pin\n");
 }
 
 int board_init(void)
