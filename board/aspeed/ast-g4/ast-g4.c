@@ -7,6 +7,7 @@
 
 #include <common.h>
 #include <netdev.h>
+#include <linux/kernel.h>
 
 #include <asm/arch/platform.h>
 #include <asm/arch/ast-sdmc.h>
