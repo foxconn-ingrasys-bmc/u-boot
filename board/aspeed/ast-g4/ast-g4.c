@@ -47,7 +47,7 @@ int uart3_init(void)
 
 	writel(0x0, AST_SCU_BASE);
 
-	prink("111111111111enable UART3 function pin\n");
+	printk("111111111111enable UART3 function pin\n");
 }
 
 int board_init(void)
